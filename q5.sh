@@ -1,21 +1,21 @@
-#! /bin/bash
-echo -n "Enter 1st number: "
-read num1
-echo -n "Enter 2nd number: "
-read num2
-echo -n "Enter 3rd number: "
-read num3
+#!/bin/bash
 
-if [ $num1 -gt $num2 ]
-then 
-	if [ $num1 -gt $num3 ]
-	then		
-		echo "$num1 is the greater number"
-	fi	
+max=$1
+min=$1
+for i in $*
+do 
+  if [ $max -lt $i ]
+  then
+      max=$i
+  fi
 
-elif [ $num2 -gt $num3 ]
-then
-	echo "$num2 is the greater number"
-else
-	echo "$num3 is the greater number"
-fi	
+  if [ $min -gt $i ]
+  then
+     min=$i
+  fi
+done
+
+echo "The Maximum element is $max"
+
+echo "The Minimum element is $min"
+ 

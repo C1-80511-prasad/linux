@@ -1,11 +1,25 @@
 #!/bin/bash
-echo -n "Enter the year : "
-read year
+echo -n "Enter the number : "
+read num
 
-if [ `expr $year % 4` == 0 -a `expr $year % 100` != 0 -o `expr $year % 400` == 0 ]
-then
-	echo "$year is a leap year"
-else
-	echo "$year is not a leap year"
-fi
+for i in `seq $num`
+do
+  for (( j=$num -$i; j >= 1; j--))
+  do
+    echo -n "  "
+  done
+  for j in `seq $i`
+  do
+    echo -n "$j "
+  done
 
+  for (( j= $i - 1; j >= 1; j-- ))
+  do
+    echo -n "$j "
+  done
+  for (( j=$num -$i; j >= 1; j--))
+  do
+    echo -n "  "
+  done
+  echo
+done
